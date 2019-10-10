@@ -1,0 +1,25 @@
+version: "3"
+services:
+  app:
+    image: bruceemmanuel/php7.2-apache
+    working_dir: /var/www/html
+    depends_on:
+      - mysql
+    ports:
+      - "9000:80"
+    volumes:
+      - ./laravel:/var/www/html
+    links:
+      - mysql:db
+    env_file: .docker.env
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./docker-db:/var/lib/mysql
+    ports:
+      - "3309:3306"
+    environment:
+      - MYSQL_DATABASE=app
+      - MYSQL_ROOT_PASSWORD=root
+  redis:
+    image: redis
