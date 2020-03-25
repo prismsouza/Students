@@ -7,3 +7,4 @@ $ chmod u+x up.sh
 $ bash up.sh
 
 Após subir os containers, a aplicação ficará acessível no endereço: [http://localhost:9000] (http://localhost:9000)
+# Students
